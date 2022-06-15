@@ -1,10 +1,8 @@
 <?php
-
     $dbhost = "localhost";
     $dbusername = "root";
     $dbpassword = "root";
-    $dbname = "assessmentposts";
-
+    $dbname = "AssessmentPosts";
     $conn = new mysqli($dbhost, $dbusername, $dbpassword, $dbname);
 
     if($mysqli -> connect_error){

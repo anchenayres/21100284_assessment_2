@@ -4,7 +4,7 @@ import PostItem from "./PostItem";
 
 function App() {
     
-    sessionStorage.setItem('activeUser', 'Vian');
+    sessionStorage.setItem('activeUser', 'Anchen');
 
     const [postMessage, setPostMessage] = useState({
         message: '',
@@ -20,7 +20,7 @@ function App() {
     const [renderPost, setRenderPost] = useState(false);
 
     useEffect(() => {
-        axios.post('http://localhost/assessTwo/readUserPosts.php', userId)
+        axios.post('http://localhost:8888/AssessmentTwo/readUserPosts.php', userId)
         .then((res) => {
             let data = res.data;
             let renderPost = data.map((item) =>
@@ -49,7 +49,7 @@ function App() {
     const addNewPost = (e) => {
         e.preventDefault();
         document.getElementById('textMes').value = "";
-        axios.post('http://localhost/assessTwo/addPost.php', postMessage)
+        axios.post('http://localhost:8888/AssessmentTwo/addPost.php', postMessage)
         .then((res) => {
             let data = res.data;
             setRenderPost(true);
@@ -57,24 +57,24 @@ function App() {
     }
 
     return (
-        <div className="App">
-            <div className="left">
-                <h1>Your Post Timeline</h1>
-                <p>Populate the area below with posts from the form to the right...</p>
+    <div className="App">
+        <div className="left">
+        <h1>Your Post Timeline</h1>
+        <p>Populate the area below with posts from the form to the right...</p>
 
-                <div className="post_item">
-                    {posts}
-                </div>
-            </div>
-
-            <div className="right">
-                <form>
-                    <h3>Add A New Post</h3>
-                    <textarea id="textMes" placeholder="your post here" onChange={messageVal} />
-                    <button type="submit" onClick={addNewPost}>Add Your New Post</button>
-                </form>
-            </div>
+        <div className="post_item">
+        {posts}
         </div>
+        </div>
+
+        <div className="right">
+            <form>
+            <h3>Add A New Post</h3>
+            <textarea id="textMes" placeholder="your post here" onChange={messageVal} />
+            <button type="submit" onClick={addNewPost}>Add Your New Post</button>
+            </form>
+        </div>
+    </div>
     );
 }
 

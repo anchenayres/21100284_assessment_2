@@ -22,7 +22,7 @@ const PostItem = (props) => {
         if (window.confirm("Are you sure you want to delete this?") === true) {
             let postId = { id: props.uniqueId };
 
-            axios.post('http://localhost/assessTwo/deletePost.php', postId)
+            axios.post('http://localhost:8888/AssessmentTwo/deletePost.php', postId)
                 .then((res) => {
                     props.rerender(true);
                 });
@@ -33,7 +33,7 @@ const PostItem = (props) => {
 
     return (
         <div>
-            {modal}
+    {modal}
             <div id={ props.uniqueId } className='post_item'>
                 <div className='postHeader'>
                     <h3 className='userPost'>{ props.userpost }</h3>

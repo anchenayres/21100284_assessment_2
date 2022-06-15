@@ -26,7 +26,7 @@ const EditPost = (props) => {
     const updatePost = (e) => {
         e.preventDefault();
 
-        axios.post('http://localhost/assessTwo/updatePost.php', updatedPost)
+        axios.post('http://localhost:8888/AssessmentTwo/updatePost.php', updatedPost)
         .then((res) => {
             let data = res.data;
             console.log(data);
